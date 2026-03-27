@@ -1,4 +1,5 @@
 const express = require('express'); 
+const axios = require('axios');
 const path = require('path'); 
 require('dotenv').config(); 
 const app = express(); 
@@ -16,14 +17,14 @@ app.locals.openStreetMapUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.pn
 // Rutas 
 app.get('/', (req, res) => { 
 res.render('index', { 
-title: 'Comparación de APIs de Mapas', 
-googleMapsApiKey: app.locals.googleMapsApiKey, 
-initialLocation: { 
-lat: 40.4168, 
-lng: -3.7038, 
-      name: 'Madrid, España' 
+    title: '240267 - Comparación de APIs de Mapas', 
+    googleMapsApiKey: app.locals.googleMapsApiKey, 
+    initialLocation: { 
+    lat: 40.4168, 
+    lng: -3.7038, 
+    name: 'Madrid, España' 
     } 
-  }); 
+    }); 
 }); 
  
 app.get('/geocode', async (req, res) => { 

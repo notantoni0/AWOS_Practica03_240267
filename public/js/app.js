@@ -4,8 +4,8 @@ let leafletMap;
 let googleMarkers = []; 
 let leafletMarkers = []; 
 let currentLocation = { 
-    lat: <%= initialLocation.lat %>, 
-    lng: <%= initialLocation.lng %>, 
+    lat: parseFloat('<%= initialLocation.lat %>'), 
+    lng: parseFloat('<%= initialLocation.lng %>'), 
     name: '<%= initialLocation.name %>' 
 }; 
 let searchCount = 0; 
@@ -302,7 +302,7 @@ function addGoogleMarker(lat, lng, title) {
     // Info window 
     const infoWindow = new google.maps.InfoWindow({ 
         content: ` 
-            <div class="marker-info-window"> 
+            <div class="p-2 bg-white rounded shadow-lg max-w-xs"> 
                 <h3 class="font-bold text-lg mb-2">${title}</h3> 
                 <p class="text-sm text-gray-600">Lat: ${lat.toFixed(6)}</p> 
                 <p class="text-sm text-gray-600">Lng: ${lng.toFixed(6)}</p> 
@@ -358,7 +358,7 @@ function addLeafletMarker(lat, lng, title) {
      
     // Popup 
     marker.bindPopup(` 
-        <div class="marker-info-window"> 
+        <div class="p-2 bg-white rounded shadow-lg max-w-xs"> 
             <h3 class="font-bold text-lg mb-2">${title}</h3> 
             <p class="text-sm text-gray-600">Lat: ${lat.toFixed(6)}</p> 
             <p class="text-sm text-gray-600">Lng: ${lng.toFixed(6)}</p> 
@@ -433,7 +433,7 @@ function showNotification(message, type = 'info') {
     notification.className = `notification fixed top-4 right-4 ${colors[type]} text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300 translate-x-0`; 
     notification.innerHTML = ` 
         <div class="flex items-center"> 
-            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamationcircle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'} mr-3"></i> 
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'} mr-3"></i> 
             <span>${message}</span> 
         </div> 
     `; 
