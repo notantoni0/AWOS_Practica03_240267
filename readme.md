@@ -26,6 +26,6 @@ Git y GitHub.
 | 3.  | Configuración de la Librería de Estilos (Tailwind CSS) | X | Completado |
 | 4.  | Creación de Vistas                              | X           | Completado   |
 | 5.  | Implementación del consumo y Funcionalidades JS| X           | Completado   |
-| 6.  | Configuración del Entorno de Ejecución          | X           | Sin iniciar   |
+| 6.  | Configuración del Entorno de Ejecución          | X           | Completado   |
 | 7.  | Pruebas de Ejecución                            | X           | Sin iniciar   |
 | 8.  | Documentación                                  | X           | Sin iniciar   |
