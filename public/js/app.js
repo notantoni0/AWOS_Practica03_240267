@@ -29,8 +29,22 @@ document.addEventListener('DOMContentLoaded', function() {
  
 // Función para inicializar Google Maps (llamada por la API) 
 function initGoogleMap() { 
+    console.log('Inicializando Google Maps');
+    
+    // Asegurar que las coordenadas son números
+    const centerLat = parseFloat(currentLocation.lat);
+    const centerLng = parseFloat(currentLocation.lng);
+    
+    console.log('Centro Google Maps:', centerLat, centerLng);
+    
+    // Verificar que no sean NaN
+    if (isNaN(centerLat) || isNaN(centerLng)) {
+        console.error('Coordenadas inválidas para Google Maps');
+        return;
+    }
+    
     const mapOptions = { 
-        center: { lat: currentLocation.lat, lng: currentLocation.lng }, 
+        center: { lat: centerLat, lng: centerLng }, 
         zoom: 12, 
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         styles: [ 
@@ -80,7 +94,7 @@ function initGoogleMap() {
     googleMap = new google.maps.Map(document.getElementById('googleMap'), mapOptions); 
      
     // Agregar marcador inicial 
-    addGoogleMarker(currentLocation.lat, currentLocation.lng, currentLocation.name); 
+    addGoogleMarker(centerLat, centerLng, currentLocation.name); 
      
     // Escuchar cambios de zoom 
     googleMap.addListener('zoom_changed', () => { 
@@ -91,11 +105,48 @@ function initGoogleMap() {
     googleMap.addListener('click', (event) => { 
         handleMapClick(event.latLng.lat(), event.latLng.lng()); 
     }); 
-} 
- 
+    
+    console.log('Google Maps inicializado correctamente');
+}
+
 // Función para inicializar Leaflet 
 function initLeafletMap() { 
-    leafletMap = L.map('leafletMap').setView([currentLocation.lat, currentLocation.lng], 12); 
+    console.log('Inicializando Leaflet');
+    
+    // Verificar que el contenedor existe
+    const mapContainer = document.getElementById('leafletMap');
+    if (!mapContainer) {
+        console.error('No se encontró el contenedor leafletMap');
+        return;
+    }
+    
+    // Verificar que L está disponible
+    if (typeof L === 'undefined') {
+        console.error('Leaflet no está cargado');
+        return;
+    }
+    
+    // Asegurar que las coordenadas son números
+    const centerLat = parseFloat(currentLocation.lat);
+    const centerLng = parseFloat(currentLocation.lng);
+    
+    console.log('Centro Leaflet:', centerLat, centerLng);
+    
+    // Verificar que no sean NaN
+    if (isNaN(centerLat) || isNaN(centerLng)) {
+        console.error('Coordenadas inválidas para Leaflet');
+        // Usar coordenadas por defecto
+        currentLocation.lat = 40.4168;
+        currentLocation.lng = -3.7038;
+        currentLocation.name = 'Madrid, España';
+        centerLatFinal = 40.4168;
+        centerLngFinal = -3.7038;
+    } else {
+        centerLatFinal = centerLat;
+        centerLngFinal = centerLng;
+    }
+    
+    leafletMap = L.map('leafletMap').setView([centerLatFinal, centerLngFinal], 12); 
      
     // Usar OpenStreetMap como capa base 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
@@ -104,7 +155,7 @@ function initLeafletMap() {
     }).addTo(leafletMap); 
      
     // Agregar marcador inicial 
-    addLeafletMarker(currentLocation.lat, currentLocation.lng, currentLocation.name); 
+    addLeafletMarker(centerLatFinal, centerLngFinal, currentLocation.name); 
      
     // Escuchar cambios de zoom 
     leafletMap.on('zoomend', () => { 
@@ -115,6 +166,8 @@ function initLeafletMap() {
     leafletMap.on('click', (event) => { 
         handleMapClick(event.latlng.lat, event.latlng.lng); 
     }); 
+    
+    console.log('Leaflet inicializado correctamente');
 } 
  
 // Función para buscar una ubicación 
@@ -374,15 +427,23 @@ function addLeafletMarker(lat, lng, title) {
  
 // Función para centrar ambos mapas 
 function centerBothMaps(lat, lng) { 
+    const centerLat = parseFloat(lat);
+    const centerLng = parseFloat(lng);
+    
+    if (isNaN(centerLat) || isNaN(centerLng)) {
+        console.error('Coordenadas inválidas para centrar mapas');
+        return;
+    }
+    
     if (googleMap) { 
-        googleMap.setCenter({ lat: lat, lng: lng }); 
+        googleMap.setCenter({ lat: centerLat, lng: centerLng }); 
         googleMap.setZoom(14); 
     } 
      
     if (leafletMap) { 
-        leafletMap.setView([lat, lng], 14); 
+        leafletMap.setView([centerLat, centerLng], 14); 
     } 
-} 
+}  
  
 // Función para limpiar todos los marcadores 
 function clearAllMarkers() { 
