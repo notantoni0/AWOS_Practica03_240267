@@ -23,7 +23,7 @@ Git y GitHub.
 |-----|--------------------------------------------------|-------------|---------------|
 | 1.  | Configuración del Proyecto                      | 3           | Completado    |
 | 2.  | Configuración del Servidor (Express)            | 5           | Completado    |
-| 3.  | Configuración de la Librería de Estilos (Tailwind CSS) | X | Sin iniciar |
+| 3.  | Configuración de la Librería de Estilos (Tailwind CSS) | X | Completado |
 | 4.  | Creación de Vistas                              | X           | Sin iniciar   |
 | 5.  | Implementación del consumo y Funcionalidades JS| X           | Sin iniciar   |
 | 6.  | Configuración del Entorno de Ejecución          | X           | Sin iniciar   |
