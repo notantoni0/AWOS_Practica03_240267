@@ -21,7 +21,7 @@ Git y GitHub.
 
 | No. | Descripción                                      | Potenciador | Estatus       |
 |-----|--------------------------------------------------|-------------|---------------|
-| 1.  | Configuración del Proyecto                      | 3           | Sin iniciar    |
+| 1.  | Configuración del Proyecto                      | 3           | Completado    |
 | 2.  | Configuración del Servidor (Express)            | 5           | Sin iniciar    |
 | 3.  | Configuración de la Librería de Estilos (Tailwind CSS) | X | Sin iniciar |
 | 4.  | Creación de Vistas                              | X           | Sin iniciar   |
