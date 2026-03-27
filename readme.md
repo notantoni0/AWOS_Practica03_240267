@@ -10,8 +10,7 @@ consumo de APIs de Geolocalización.
 ---
 
 ### Consideraciones:
-<p align="justify">
-Esta práctica será desarrollada con estructuras de ramas por cada fase, para que el estudiante
+<p align="justify"> Esta práctica será desarrollada con estructuras de ramas por cada fase, para que el estudiante
 continúe con la manipulación correcta de ramas en el contexto de control de versiones y desarrollo colaborativo
 utilizando
 Git y GitHub.
@@ -20,31 +19,42 @@ Git y GitHub.
 ---
 
 ## Características
-<p align="justify">- Búsqueda de ubicaciones
-- Geolocalización del usuario 
-- Marcadores en ambos mapas 
-- Comparación side-by-side 
-- Interfaz moderna con Tailwind CSS 
+<p align="justify">• Búsqueda de ubicaciones
+
+• Geolocalización del usuario 
+
+• Marcadores en ambos mapas 
+
+• Comparación side-by-side 
+
+• Interfaz moderna con Tailwind CSS 
+
 </p>
 
 ---
 
 ## Tecnologías Utilizadas
-<p align="justify">- Node.js & Express 
-- Google Maps API 
-- Leaflet.js 
-- Tailwind CSS 
-- OpenStreetMap Nominatim 
+<p align="justify">• Node.js & Express 
+
+• Google Maps API 
+
+• Leaflet.js 
+
+• Tailwind CSS 
+
+• OpenStreetMap Nominatim </p>
+
 
 ---
 
 ## Cómo ejecutar localmente 
-<p align="justify">
-1. Clonar repositorio 
-2. `npm install` 
-3. Crear archivo `.env` con tu API key 
-4. `npm run dev`
-</p>
+<p align="justify">1.- Clonar repositorio
+
+2.- `npm install` 
+
+3.- Crear archivo `.env` con tu API key 
+
+4.- `npm run dev`</p>
 
 ---
 
@@ -68,48 +78,72 @@ Git y GitHub.
 ### Prueba 1: Entrar a la página web
 
 **Entrada:** URL del sitio
+
 **Resultado Google Maps:** Cargó el mapa correctamente en la ubicación predeterminada (Madrid).
+
 **Resultado Leaflet:** Cargó el mapa correctamente en la ubicación predeterminada (Madrid).
-(images/screenshots/screenshot1.png)
+
+![alt text](images/screenshots/screenshot1.png)
+
 
 ### Prueba 2: Búsqueda de ubicación por nombre
 
 **Entrada:** "Xicotepec"
+
 **Resultado Google Maps:** marcador preciso y centrado.
+
 **Resultado Leaflet:** marcador correcto, tiempo de respuesta ligeramente menor.
-(images/screenshots/screenshot2.png)
+
+![alt text](images/screenshots/screenshot2.png)
+
 
 ### Prueba 3: Búsqueda de ubicación por coordenadas
 
 **Entrada:** "-20, 80"
+
 **Resultado Google Maps:** Se encontró correcatemnet la ubicación.
+
 **Resultado Leaflet:** Se encontró correcatemnte la ubicación.
-(images/screenshots/screenshot3.png)
+
+![alt text](images/screenshots/screenshot3.png)
+
 
 ### Prueba 4: Botón de 'Mi ubicación'.
 
 **Entrada:** Permiso del navegador
+
 **Resultado Google Maps:** Se muestra correcatemnet la ubicación actual.
+
 **Resultado Leaflet:** Se muestra correcatemnet la ubicación actual.
-(images/screenshots/screenshot3.png)
+
+![alt text](images/screenshots/screenshot3.png)
 
 ### Prueba 5: Coordenadas inválidas
 
 **Entrada:** "-20, 9&53?eibd"
+
 **Resultado:** Notificación de coordenadas inválidas.
-(images/screenshots/screenshit6.png)
+
+![alt text](images/screenshots/screenshit6.png)
+
 
 ### Prueba 6: Aumento del contador de marcadores / búsquedas
 
 **Entrada:** N/A
+
 **Resultado:** Al hacer una nueva búsqueda, se aumenta correctamente el contador.
-(images/screenshots/screenshot4.png)
+
+![alt text](images/screenshots/screenshot4.png)
+
 
 ### Prueba 7: Limpieza de marcadores
 
 **Entrada:** N/A
+
 **Resultado:** Se reinicia el contador a 0.
-(images/screenshots/screenshot7.png)
+
+![alt text](images/screenshots/screenshot7.png)
+
 
 ---
 
