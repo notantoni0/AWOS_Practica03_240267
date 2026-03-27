@@ -111,4 +111,7 @@ Git y GitHub.
 **Resultado:** Se reinicia el contador a 0.
 (images/screenshots/screenshot7.png)
 
+---
 
+### Creado por: 
+José Antonio Ricaño Reyes - 240267.
